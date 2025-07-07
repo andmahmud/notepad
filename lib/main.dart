@@ -7,9 +7,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
@@ -19,62 +19,69 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final height = size.height;
+    final width = size.width;
+
     return Scaffold(
       body: Column(
         children: [
+          // Responsive AppBar wave
           ClipPath(
             clipper: AppBarWaveClipper(),
             child: Container(
-              height: 200,
+              height: height * 0.25,
               color: Colors.blue,
               alignment: Alignment.center,
-              child: const SafeArea(
+              child: SafeArea(
                 child: Text(
                   'AppBar content',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 28,
+                    fontSize: width * 0.07,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Center(
-              child: Text('Main Body Content', style: TextStyle(fontSize: 20)),
+              child: Text(
+                'Main Body Content',
+                style: TextStyle(fontSize: width * 0.05),
+              ),
             ),
           ),
         ],
       ),
 
-      // Floating button for U-shape effect
+      // Floating Action Button
       floatingActionButton: SizedBox(
-        height: 70,
-        width: 70,
+        height: width * 0.18,
+        width: width * 0.18,
         child: FloatingActionButton(
           backgroundColor: Colors.blue,
           onPressed: () {},
-          shape: const CircleBorder(), // ensures it's circular
-          child: const Icon(Icons.add, color: Colors.white, size: 32),
+          shape: const CircleBorder(),
+          child: Icon(Icons.add, color: Colors.white, size: width * 0.08),
         ),
       ),
-
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      // BottomAppBar with notch
+      // Responsive BottomAppBar
       bottomNavigationBar: BottomAppBar(
         color: Colors.blue,
         shape: const CircularNotchedRectangle(),
         notchMargin: 8.0,
         child: SizedBox(
-          height: 60,
+          height: height * 0.08,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
-              Icon(Icons.home, color: Colors.white),
-              SizedBox(width: 40), // space for FAB
-              Icon(Icons.person, color: Colors.white),
+            children: [
+              Icon(Icons.home, color: Colors.white, size: width * 0.07),
+              SizedBox(width: width * 0.15), // space for FAB
+              Icon(Icons.person, color: Colors.white, size: width * 0.07),
             ],
           ),
         ),
