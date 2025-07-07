@@ -20,7 +20,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // AppBar with wave shape
       body: Column(
         children: [
           ClipPath(
