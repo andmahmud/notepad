@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
               alignment: Alignment.center,
               child: const SafeArea(
                 child: Text(
-                  'AppBar',
+                  'AppBar content',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 28,
