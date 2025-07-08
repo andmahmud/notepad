@@ -61,13 +61,33 @@ class HomePage extends StatelessWidget {
         shape: const CircularNotchedRectangle(),
         notchMargin: 8.0,
         child: SizedBox(
-          height: height * 0.08,
+          height: height * 0.10, // Slightly taller for text
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Icon(Icons.home, color: Colors.white, size: width * 0.07),
-              SizedBox(width: width * 0.15), // space for FAB
-              Icon(Icons.person, color: Colors.white, size: width * 0.07),
+              // Home Icon + Label
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.home, color: Colors.white, size: width * 0.07),
+                  const Text(
+                    'Home',
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ],
+              ),
+              SizedBox(width: width * 0.15), // Space for FAB
+              // Profile Icon + Label
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.person, color: Colors.white, size: width * 0.07),
+                  const Text(
+                    'Profile',
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
