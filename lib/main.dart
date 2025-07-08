@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notepad/home.dart';
+import 'package:notepad/home_page.dart';
 
 void main() => runApp(const MyApp());
 
